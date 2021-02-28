@@ -75,3 +75,10 @@ RawPrometheus-8   2.00 ± 0%
 
 Prometheus client does not support metrics with same name and different label sets. 
 If you add a label to context, make sure you have it in all cases, at least with an empty value `""`.
+
+## Versioning
+
+This project adheres to [Semantic Versioning](https://semver.org/#semantic-versioning-200).
+
+Before version `1.0.0`, breaking changes are tagged with `MINOR` bump, features and fixes are tagged with `PATCH` bump.
+After version `1.0.0`, breaking changes are tagged with `MAJOR` bump.
