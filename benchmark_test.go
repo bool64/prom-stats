@@ -5,8 +5,8 @@ import (
 	"strconv"
 	"testing"
 
+	"github.com/bool64/prom-stats"
 	"github.com/bool64/stats"
-	"github.com/bool64/stats/prom-stats"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/stretchr/testify/require"
 )

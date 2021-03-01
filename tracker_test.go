@@ -6,8 +6,8 @@ import (
 	"sync"
 	"testing"
 
+	"github.com/bool64/prom-stats"
 	"github.com/bool64/stats"
-	"github.com/bool64/stats/prom-stats"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/testutil"
 	"github.com/stretchr/testify/assert"
@@ -18,7 +18,7 @@ const expected = `
 		# TYPE another_size summary
 		another_size_sum{l="v"} 4950
 		another_size_count{l="v"} 100
-		# HELP iterations is created by stats/prom-stats_test.TestTracker.func1
+		# HELP iterations is created by bool64/prom-stats_test.TestTracker.func1
 		# TYPE iterations counter
 		iterations 100
 		# HELP short is short
@@ -28,7 +28,7 @@ const expected = `
 		# TYPE some_action_count counter
 		some_action_count{l="v",name="name-val",other="another-val"} 1300
 		some_action_count{l="v",name="name-val",other="other-val"} 2500
-		# HELP some_action_items is created by stats/prom-stats_test.TestTracker.func1
+		# HELP some_action_items is created by bool64/prom-stats_test.TestTracker.func1
 		# TYPE some_action_items gauge
 		some_action_items{l="v",name="name-val",other="other-val"} 123
 		# HELP some_size is some size

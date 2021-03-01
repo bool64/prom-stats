@@ -1,4 +1,4 @@
-module github.com/bool64/stats/prom-stats
+module github.com/bool64/prom-stats
 
 go 1.13
 
