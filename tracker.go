@@ -9,7 +9,6 @@ import (
 
 	"github.com/bool64/stats"
 	"github.com/prometheus/client_golang/prometheus"
-	"github.com/prometheus/client_golang/prometheus/collectors"
 )
 
 var (
@@ -23,12 +22,12 @@ func NewStatsTracker(registry *prometheus.Registry) (*Tracker, error) {
 	if registry == nil {
 		registry = prometheus.NewRegistry()
 
-		err := registry.Register(collectors.NewProcessCollector(collectors.ProcessCollectorOpts{}))
+		err := registry.Register(prometheus.NewProcessCollector(prometheus.ProcessCollectorOpts{}))
 		if err != nil {
 			return nil, err
 		}
 
-		err = registry.Register(collectors.NewGoCollector())
+		err = registry.Register(prometheus.NewGoCollector())
 		if err != nil {
 			return nil, err
 		}
