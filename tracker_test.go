@@ -70,7 +70,7 @@ func TestTracker(t *testing.T) {
 
 		go func() {
 			defer wg.Done()
-			tr.Add(context.Background(), "iterations", 1)
+			tr.Add(context.Background(), "iterations", 1) // nolint: contextcheck // BG ctx is intended.
 			tr.Add(ctx, "some.action.count", 12,
 				"name", "name-val",
 				"other", "other-val",
