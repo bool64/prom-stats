@@ -55,7 +55,8 @@ func BenchmarkRawPrometheus(b *testing.B) {
 	registry := prometheus.NewRegistry()
 	counter := prometheus.NewCounterVec(
 		prometheus.CounterOpts{
-			Name: "namespace_some_action_count",
+			Help: "Some action",
+			Name: "namespace_some_action_total",
 		},
 		[]string{"name", "other"},
 	)
