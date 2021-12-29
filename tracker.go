@@ -12,9 +12,9 @@ import (
 )
 
 var (
-	_ stats.Tracker         = (*Tracker)(nil)
-	_ stats.TrackerProvider = (*Tracker)(nil)
-	_ RegistryProvider      = (*Tracker)(nil)
+	_ stats.Tracker              = (*Tracker)(nil)
+	_ stats.TrackerProvider      = (*Tracker)(nil)
+	_ PrometheusRegistryProvider = (*Tracker)(nil)
 )
 
 // NewStatsTracker creates prometheus stats tracker.
@@ -44,8 +44,8 @@ func NewStatsTracker(registry *prometheus.Registry) (*Tracker, error) {
 	return t, nil
 }
 
-// RegistryProvider provides a prometheus.Registry.
-type RegistryProvider interface {
+// PrometheusRegistryProvider provides a prometheus.Registry.
+type PrometheusRegistryProvider interface {
 	PrometheusRegistry() *prometheus.Registry
 }
 
