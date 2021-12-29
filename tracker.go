@@ -12,8 +12,9 @@ import (
 )
 
 var (
-	_ stats.Tracker         = &Tracker{}
-	_ stats.TrackerProvider = &Tracker{}
+	_ stats.Tracker              = (*Tracker)(nil)
+	_ stats.TrackerProvider      = (*Tracker)(nil)
+	_ PrometheusRegistryProvider = (*Tracker)(nil)
 )
 
 // NewStatsTracker creates prometheus stats tracker.
@@ -43,6 +44,11 @@ func NewStatsTracker(registry *prometheus.Registry) (*Tracker, error) {
 	return t, nil
 }
 
+// PrometheusRegistryProvider provides a prometheus.Registry.
+type PrometheusRegistryProvider interface {
+	PrometheusRegistry() *prometheus.Registry
+}
+
 // Tracker implements stats tracker with prometheus registry.
 //
 // Please use NewStatsTracker to create new instance.
@@ -57,6 +63,7 @@ type Tracker struct {
 
 	reg *regexp.Regexp
 
+	// Deprecated: Use PrometheusRegistry() instead.
 	Registry  *prometheus.Registry
 	ErrLogger func(ctx context.Context, err error, labels []string)
 }
@@ -64,6 +71,11 @@ type Tracker struct {
 // StatsTracker is a service locator provider.
 func (t *Tracker) StatsTracker() stats.Tracker {
 	return t
+}
+
+// PrometheusRegistry provides a prometheus.Registry.
+func (t *Tracker) PrometheusRegistry() *prometheus.Registry {
+	return t.Registry
 }
 
 // Add collects value to Counter, Summary or Histogram.
