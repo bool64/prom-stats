@@ -247,8 +247,7 @@ func (t *Tracker) createCollector(ctx context.Context, id identity, lb *labelBuf
 	return collect
 }
 
-// nolint: dupl // Code uses unique symbols.
-func (t *Tracker) summary(
+func (t *Tracker) summary( //nolint: dupl // Code uses unique symbols.
 	ctx context.Context,
 	canonicalID identity,
 	labels []string,
@@ -278,8 +277,7 @@ func (t *Tracker) summary(
 	return true
 }
 
-// nolint: dupl // Code uses unique symbols.
-func (t *Tracker) histogram(
+func (t *Tracker) histogram( //nolint: dupl // Code uses unique symbols.
 	ctx context.Context,
 	canonicalID identity,
 	labels []string,
@@ -309,8 +307,7 @@ func (t *Tracker) histogram(
 	return true
 }
 
-// nolint: dupl // Code uses unique symbols.
-func (t *Tracker) counter(
+func (t *Tracker) counter( //nolint: dupl // Code uses unique symbols.
 	ctx context.Context,
 	canonicalID identity,
 	labels []string,
@@ -337,8 +334,7 @@ func (t *Tracker) counter(
 	return true
 }
 
-// nolint: dupl // Code uses unique symbols.
-func (t *Tracker) gauge(
+func (t *Tracker) gauge( //nolint: dupl // Code uses unique symbols.
 	ctx context.Context,
 	canonicalID identity,
 	labels []string,
